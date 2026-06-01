@@ -1,0 +1,76 @@
+name: ScreenshotOCR
+
+options:
+  minimumXcodeGenVersion: "2.0.0"
+  bundleIdPrefix: com.alexgarmatenko
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    DEAD_CODE_STRIPPING: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
+    GCC_TREAT_WARNINGS_AS_ERRORS: NO
+    CLANG_ENABLE_MODULES: YES
+    COMBINE_HIDPI_IMAGES: YES
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: YES
+    GENERATE_INFOPLIST_FILE: NO
+    SWIFT_EMIT_LOC_STRINGS: YES
+
+targets:
+  ScreenshotOCR:
+    type: application
+    platform: macOS
+    sources:
+      - path: ScreenshotOCR
+        excludes:
+          - "Info.plist"
+          - "ScreenshotOCR.entitlements"
+    info:
+      path: ScreenshotOCR/Info.plist
+      properties:
+        CFBundleName: $(PRODUCT_NAME)
+        CFBundleDisplayName: Screenshot OCR
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleExecutable: $(EXECUTABLE_NAME)
+        CFBundlePackageType: APPL
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
+        CFBundleInfoDictionaryVersion: "6.0"
+        LSUIElement: true
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        NSHumanReadableCopyright: ""
+        NSPrincipalClass: NSApplication
+        NSScreenCaptureUsageDescription: "Screenshot OCR captures the area you select to recognize text from your screen."
+    entitlements:
+      path: ScreenshotOCR/ScreenshotOCR.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.alexgarmatenko.ScreenshotOCR
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_PREVIEWS: YES
+
+  ScreenshotOCRTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: ScreenshotOCRTests
+    dependencies:
+      - target: ScreenshotOCR
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.alexgarmatenko.ScreenshotOCRTests
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/ScreenshotOCR.app/Contents/MacOS/ScreenshotOCR"
+        GENERATE_INFOPLIST_FILE: YES

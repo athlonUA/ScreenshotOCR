@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D93B9955AF3BC97748C021E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DEBE165C4ABD29468434A /* AppSettings.swift */; };
+		0DCBE85A51A3CF2FD4748FF9 /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2E79C03703723D1ABED0C /* AppSettingsTests.swift */; };
+		15A4BF4DAD98953923C0AFA2 /* ClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B020ADBCC41A2DD3B4496EC /* ClipboardService.swift */; };
+		163F29DB83E989A45275BEA1 /* HotkeyRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D93F7C1D3B7F995799B806 /* HotkeyRecorderView.swift */; };
+		2190A325D5923CDD1A981291 /* KeyCodeNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBD9C0AFB085FC6446E2D3 /* KeyCodeNames.swift */; };
+		3091FA6CA1A8EF6A3B594DF9 /* ClipboardServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FBD37BD5429C0D4717C58 /* ClipboardServiceTests.swift */; };
+		3818D9FD548A51D0D5472F44 /* AppIconRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C348EA8143416E8E9829F111 /* AppIconRenderer.swift */; };
+		3978C1808BCC4419EACE1ACC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB5319848D71C53BF266003 /* AppCoordinator.swift */; };
+		3C494AD055EB70D71A07573A /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F22E212ABB5E418A316121A /* Hotkey.swift */; };
+		4101B7032664D9F3DA8376EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07788B409EFC2EBE63F3375 /* Assets.xcassets */; };
+		4AFD0DDF805E689DCBA54A00 /* MenuBarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D95DB2DAFF6166AD39D3E2 /* MenuBarContent.swift */; };
+		59F85138BE75594D82A2C27D /* SelectionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D216AB5D53A14B6421AE4 /* SelectionOverlayView.swift */; };
+		8B93522FA36B771506EAAC66 /* HotkeyRecorderWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EC8E0942C20E7B67ECC92 /* HotkeyRecorderWindow.swift */; };
+		915DC2D335362E2970E57FBB /* ScreenshotAreaSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173506CBF346D30841B5E58 /* ScreenshotAreaSelector.swift */; };
+		9ED0BD369ADB9BC7BBA6E748 /* FileOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDC6031098EC66DB59FD75 /* FileOCRService.swift */; };
+		9FF93416C211A4FDEC7F045C /* KeyCodeNamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76FDE4DBEC7B5581D7E177B /* KeyCodeNamesTests.swift */; };
+		A6BDFEFCA2C7941DB14991F9 /* HotkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58588C6B696899301A31C92 /* HotkeyTests.swift */; };
+		ADC9939B7A47D9F28155D29B /* AppMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBEBFC98BDFF49D0BEE0E5 /* AppMarkView.swift */; };
+		B6FEE7DC08390F06F8FD82FE /* PermissionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D15030920A56DC7ACECF16 /* PermissionsService.swift */; };
+		BD492DFE330362860E7A479D /* ScreenshotOCRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D547774849FCD4ED4628621E /* ScreenshotOCRApp.swift */; };
+		C7455058D75FC7A0AC357E42 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69AE8F717701F669A41B811 /* HotkeyManager.swift */; };
+		D4D4519A3ED161DF9CD8B4F6 /* FileOCRServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F4CCA50753D145D90D6737 /* FileOCRServiceTests.swift */; };
+		D8EE73E70F5BBD78FDBB5C31 /* OCRServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E40EBA5C6BB189AA0B6919 /* OCRServiceTests.swift */; };
+		DA35479F213B037177BB2CD7 /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63957CA4CDE6F19366940CA1 /* OCRService.swift */; };
+		EE3AA9C6546C8161C0E337AF /* PermissionsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EACDA20D667BDC60C830205 /* PermissionsServiceTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1EF0BBA6E84B22D04ED8816 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7FDEA85FE3158FE8A146507 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F2D5CEB0E5B42E4922731AE;
+			remoteInfo = ScreenshotOCR;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		045EC8E0942C20E7B67ECC92 /* HotkeyRecorderWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderWindow.swift; sourceTree = "<group>"; };
+		23F4CCA50753D145D90D6737 /* FileOCRServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOCRServiceTests.swift; sourceTree = "<group>"; };
+		2AEBEBFC98BDFF49D0BEE0E5 /* AppMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMarkView.swift; sourceTree = "<group>"; };
+		3173506CBF346D30841B5E58 /* ScreenshotAreaSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotAreaSelector.swift; sourceTree = "<group>"; };
+		49D93F7C1D3B7F995799B806 /* HotkeyRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderView.swift; sourceTree = "<group>"; };
+		5B020ADBCC41A2DD3B4496EC /* ClipboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardService.swift; sourceTree = "<group>"; };
+		5F22E212ABB5E418A316121A /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
+		63957CA4CDE6F19366940CA1 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
+		7CB2E79C03703723D1ABED0C /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
+		9EACDA20D667BDC60C830205 /* PermissionsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsServiceTests.swift; sourceTree = "<group>"; };
+		A77DB3FD5CF3488D261BF728 /* ScreenshotOCRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenshotOCRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9EDC6031098EC66DB59FD75 /* FileOCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOCRService.swift; sourceTree = "<group>"; };
+		AA9D216AB5D53A14B6421AE4 /* SelectionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionOverlayView.swift; sourceTree = "<group>"; };
+		AAB5319848D71C53BF266003 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B2ACAABD67178BFE90549F2A /* ScreenshotOCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenshotOCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B58588C6B696899301A31C92 /* HotkeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyTests.swift; sourceTree = "<group>"; };
+		BBDBD9C0AFB085FC6446E2D3 /* KeyCodeNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCodeNames.swift; sourceTree = "<group>"; };
+		C348EA8143416E8E9829F111 /* AppIconRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconRenderer.swift; sourceTree = "<group>"; };
+		C69AE8F717701F669A41B811 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		D07788B409EFC2EBE63F3375 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0E40EBA5C6BB189AA0B6919 /* OCRServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRServiceTests.swift; sourceTree = "<group>"; };
+		D547774849FCD4ED4628621E /* ScreenshotOCRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotOCRApp.swift; sourceTree = "<group>"; };
+		D9D95DB2DAFF6166AD39D3E2 /* MenuBarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContent.swift; sourceTree = "<group>"; };
+		E76FDE4DBEC7B5581D7E177B /* KeyCodeNamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCodeNamesTests.swift; sourceTree = "<group>"; };
+		EC3DEBE165C4ABD29468434A /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		F50FBD37BD5429C0D4717C58 /* ClipboardServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardServiceTests.swift; sourceTree = "<group>"; };
+		F5D15030920A56DC7ACECF16 /* PermissionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		025DFBAC7A3FAFF148A88D5C /* Clipboard */ = {
+			isa = PBXGroup;
+			children = (
+				5B020ADBCC41A2DD3B4496EC /* ClipboardService.swift */,
+			);
+			path = Clipboard;
+			sourceTree = "<group>";
+		};
+		07637143A9C4F5CBA16DFA1E /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				C348EA8143416E8E9829F111 /* AppIconRenderer.swift */,
+				2AEBEBFC98BDFF49D0BEE0E5 /* AppMarkView.swift */,
+				D9D95DB2DAFF6166AD39D3E2 /* MenuBarContent.swift */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
+		124313C5D1C9454AD0767EEF /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				A9EDC6031098EC66DB59FD75 /* FileOCRService.swift */,
+				63957CA4CDE6F19366940CA1 /* OCRService.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		2DEB585D9C5D9587ED59733F /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				F5D15030920A56DC7ACECF16 /* PermissionsService.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		42DC1206E371DE22ACD193CD /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				EC3DEBE165C4ABD29468434A /* AppSettings.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		4DE152017826F69A4FFBFA47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D07788B409EFC2EBE63F3375 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		65ED2723089B07DE3A7DF048 /* ScreenshotOCRTests */ = {
+			isa = PBXGroup;
+			children = (
+				7CB2E79C03703723D1ABED0C /* AppSettingsTests.swift */,
+				F50FBD37BD5429C0D4717C58 /* ClipboardServiceTests.swift */,
+				23F4CCA50753D145D90D6737 /* FileOCRServiceTests.swift */,
+				B58588C6B696899301A31C92 /* HotkeyTests.swift */,
+				E76FDE4DBEC7B5581D7E177B /* KeyCodeNamesTests.swift */,
+				D0E40EBA5C6BB189AA0B6919 /* OCRServiceTests.swift */,
+				9EACDA20D667BDC60C830205 /* PermissionsServiceTests.swift */,
+			);
+			path = ScreenshotOCRTests;
+			sourceTree = "<group>";
+		};
+		A71FC25191B1377B9CAC71A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2ACAABD67178BFE90549F2A /* ScreenshotOCR.app */,
+				A77DB3FD5CF3488D261BF728 /* ScreenshotOCRTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8327E1D0B55147F211B77A2 /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				3173506CBF346D30841B5E58 /* ScreenshotAreaSelector.swift */,
+				AA9D216AB5D53A14B6421AE4 /* SelectionOverlayView.swift */,
+			);
+			path = Screenshot;
+			sourceTree = "<group>";
+		};
+		B3E07A45B4F3DC3E150F569C /* ScreenshotOCR */ = {
+			isa = PBXGroup;
+			children = (
+				DB01DDFCC0C157021482618A /* App */,
+				025DFBAC7A3FAFF148A88D5C /* Clipboard */,
+				F3897F98B845C55605AF7C16 /* Hotkey */,
+				124313C5D1C9454AD0767EEF /* OCR */,
+				2DEB585D9C5D9587ED59733F /* Permissions */,
+				4DE152017826F69A4FFBFA47 /* Resources */,
+				A8327E1D0B55147F211B77A2 /* Screenshot */,
+				07637143A9C4F5CBA16DFA1E /* StatusBar */,
+				42DC1206E371DE22ACD193CD /* Storage */,
+			);
+			path = ScreenshotOCR;
+			sourceTree = "<group>";
+		};
+		DA4B2BA56CFE28B4A0B9A5F6 = {
+			isa = PBXGroup;
+			children = (
+				B3E07A45B4F3DC3E150F569C /* ScreenshotOCR */,
+				65ED2723089B07DE3A7DF048 /* ScreenshotOCRTests */,
+				A71FC25191B1377B9CAC71A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB01DDFCC0C157021482618A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AAB5319848D71C53BF266003 /* AppCoordinator.swift */,
+				D547774849FCD4ED4628621E /* ScreenshotOCRApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F3897F98B845C55605AF7C16 /* Hotkey */ = {
+			isa = PBXGroup;
+			children = (
+				5F22E212ABB5E418A316121A /* Hotkey.swift */,
+				C69AE8F717701F669A41B811 /* HotkeyManager.swift */,
+				49D93F7C1D3B7F995799B806 /* HotkeyRecorderView.swift */,
+				045EC8E0942C20E7B67ECC92 /* HotkeyRecorderWindow.swift */,
+				BBDBD9C0AFB085FC6446E2D3 /* KeyCodeNames.swift */,
+			);
+			path = Hotkey;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0F2D5CEB0E5B42E4922731AE /* ScreenshotOCR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ABCEA56F83E655000581426 /* Build configuration list for PBXNativeTarget "ScreenshotOCR" */;
+			buildPhases = (
+				22BB6A78A2A14F8B6215EB2E /* Sources */,
+				D8CA4C6C04643F2C14E2A40E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScreenshotOCR;
+			packageProductDependencies = (
+			);
+			productName = ScreenshotOCR;
+			productReference = B2ACAABD67178BFE90549F2A /* ScreenshotOCR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D40C0BED641AF8531DB4CA50 /* ScreenshotOCRTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 251B056F9A47F5E989E4F26D /* Build configuration list for PBXNativeTarget "ScreenshotOCRTests" */;
+			buildPhases = (
+				BAE3FEF12C3D30C20D53EF85 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCADF76157EF2892CB48DED5 /* PBXTargetDependency */,
+			);
+			name = ScreenshotOCRTests;
+			packageProductDependencies = (
+			);
+			productName = ScreenshotOCRTests;
+			productReference = A77DB3FD5CF3488D261BF728 /* ScreenshotOCRTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7FDEA85FE3158FE8A146507 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0F2D5CEB0E5B42E4922731AE = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					D40C0BED641AF8531DB4CA50 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E80A4B024A1B369EC989D1E2 /* Build configuration list for PBXProject "ScreenshotOCR" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DA4B2BA56CFE28B4A0B9A5F6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A71FC25191B1377B9CAC71A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F2D5CEB0E5B42E4922731AE /* ScreenshotOCR */,
+				D40C0BED641AF8531DB4CA50 /* ScreenshotOCRTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8CA4C6C04643F2C14E2A40E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4101B7032664D9F3DA8376EC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22BB6A78A2A14F8B6215EB2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3978C1808BCC4419EACE1ACC /* AppCoordinator.swift in Sources */,
+				3818D9FD548A51D0D5472F44 /* AppIconRenderer.swift in Sources */,
+				ADC9939B7A47D9F28155D29B /* AppMarkView.swift in Sources */,
+				0D93B9955AF3BC97748C021E /* AppSettings.swift in Sources */,
+				15A4BF4DAD98953923C0AFA2 /* ClipboardService.swift in Sources */,
+				9ED0BD369ADB9BC7BBA6E748 /* FileOCRService.swift in Sources */,
+				3C494AD055EB70D71A07573A /* Hotkey.swift in Sources */,
+				C7455058D75FC7A0AC357E42 /* HotkeyManager.swift in Sources */,
+				163F29DB83E989A45275BEA1 /* HotkeyRecorderView.swift in Sources */,
+				8B93522FA36B771506EAAC66 /* HotkeyRecorderWindow.swift in Sources */,
+				2190A325D5923CDD1A981291 /* KeyCodeNames.swift in Sources */,
+				4AFD0DDF805E689DCBA54A00 /* MenuBarContent.swift in Sources */,
+				DA35479F213B037177BB2CD7 /* OCRService.swift in Sources */,
+				B6FEE7DC08390F06F8FD82FE /* PermissionsService.swift in Sources */,
+				915DC2D335362E2970E57FBB /* ScreenshotAreaSelector.swift in Sources */,
+				BD492DFE330362860E7A479D /* ScreenshotOCRApp.swift in Sources */,
+				59F85138BE75594D82A2C27D /* SelectionOverlayView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAE3FEF12C3D30C20D53EF85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DCBE85A51A3CF2FD4748FF9 /* AppSettingsTests.swift in Sources */,
+				3091FA6CA1A8EF6A3B594DF9 /* ClipboardServiceTests.swift in Sources */,
+				D4D4519A3ED161DF9CD8B4F6 /* FileOCRServiceTests.swift in Sources */,
+				A6BDFEFCA2C7941DB14991F9 /* HotkeyTests.swift in Sources */,
+				9FF93416C211A4FDEC7F045C /* KeyCodeNamesTests.swift in Sources */,
+				D8EE73E70F5BBD78FDBB5C31 /* OCRServiceTests.swift in Sources */,
+				EE3AA9C6546C8161C0E337AF /* PermissionsServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCADF76157EF2892CB48DED5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F2D5CEB0E5B42E4922731AE /* ScreenshotOCR */;
+			targetProxy = D1EF0BBA6E84B22D04ED8816 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6C92ACF4A3B9E43B0D3302D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScreenshotOCR/ScreenshotOCR.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ScreenshotOCR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexgarmatenko.ScreenshotOCR;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7A8D2B58F0D6FFAB86BA647E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScreenshotOCR/ScreenshotOCR.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ScreenshotOCR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexgarmatenko.ScreenshotOCR;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		96E8B80DAD12D1F271F13421 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexgarmatenko.ScreenshotOCRTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScreenshotOCR.app/Contents/MacOS/ScreenshotOCR";
+			};
+			name = Release;
+		};
+		E76F47AB1F3A021CD69CBE14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F12AFBA07DE221606EEEF2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F61C98EE94215069EE5A9084 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexgarmatenko.ScreenshotOCRTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScreenshotOCR.app/Contents/MacOS/ScreenshotOCR";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		251B056F9A47F5E989E4F26D /* Build configuration list for PBXNativeTarget "ScreenshotOCRTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F61C98EE94215069EE5A9084 /* Debug */,
+				96E8B80DAD12D1F271F13421 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9ABCEA56F83E655000581426 /* Build configuration list for PBXNativeTarget "ScreenshotOCR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A8D2B58F0D6FFAB86BA647E /* Debug */,
+				6C92ACF4A3B9E43B0D3302D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E80A4B024A1B369EC989D1E2 /* Build configuration list for PBXProject "ScreenshotOCR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E76F47AB1F3A021CD69CBE14 /* Debug */,
+				F12AFBA07DE221606EEEF2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7FDEA85FE3158FE8A146507 /* Project object */;
+}

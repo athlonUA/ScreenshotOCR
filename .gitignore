@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+*.swp
+
+# Xcode build output
+build/
+DerivedData/
+*.hmap
+*.dSYM
+*.dSYM.zip
+*.ipa
+
+# Per-user Xcode state
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager (if ever added)
+.swiftpm/
+.build/
+Package.resolved
+
+# Secrets (default-deny even if unused today)
+.env
+*.env
+
+# Editor configs
+.idea/
+.vscode/
+*.iml
+
+# xcodegen output — kept under VCS so CI can build without xcodegen.
+# Strip per-user folders inside the generated project.
+ScreenshotOCR.xcodeproj/xcuserdata/
+ScreenshotOCR.xcodeproj/project.xcworkspace/xcuserdata/
+ScreenshotOCR.xcodeproj/project.xcworkspace/xcshareddata/
