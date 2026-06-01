@@ -26,6 +26,7 @@ enum ScreenshotError: LocalizedError {
 @MainActor
 final class ScreenshotAreaSelector {
     private var overlayWindows: [NSWindow] = []
+    private var escapeMonitor: Any?
     private var inFlight = false
 
     /// Returns the captured image, or `nil` if the user cancelled.
@@ -74,8 +75,20 @@ final class ScreenshotAreaSelector {
             if let rect { onRect(rect) } else { onCancel() }
         }
 
+        // Catch-all Esc handler — `keyDown` on the borderless overlay window
+        // can be flaky depending on key-window focus order, so we add a local
+        // monitor as a guaranteed back-stop. Right-click / mouse-up cancel
+        // paths still go through `SelectionOverlayView`.
+        escapeMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+            if event.keyCode == 53 {
+                finish(nil)
+                return nil
+            }
+            return event
+        }
+
         for screen in NSScreen.screens {
-            let window = NSWindow(
+            let window = OverlayWindow(
                 contentRect: screen.frame,
                 styleMask: .borderless,
                 backing: .buffered,
@@ -106,6 +119,10 @@ final class ScreenshotAreaSelector {
     }
 
     private func teardownOverlays() {
+        if let monitor = escapeMonitor {
+            NSEvent.removeMonitor(monitor)
+            escapeMonitor = nil
+        }
         for window in overlayWindows {
             window.orderOut(nil)
             window.contentView = nil
@@ -178,6 +195,15 @@ final class ScreenshotAreaSelector {
             throw ScreenshotError.captureFailed(error)
         }
     }
+}
+
+/// `NSWindow` subclass that can become key/main even with a `.borderless`
+/// style mask. Required so the overlay actually receives keyDown events —
+/// stock `NSWindow` with borderless style returns `false` from
+/// `canBecomeKey`, which means `SelectionOverlayView.keyDown` is never called.
+private final class OverlayWindow: NSWindow {
+    override var canBecomeKey: Bool { true }
+    override var canBecomeMain: Bool { true }
 }
 
 private func intersectionArea(_ a: CGRect, _ b: CGRect) -> CGFloat {

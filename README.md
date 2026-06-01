@@ -43,7 +43,7 @@ Run it with `open` and look for the icon in your menu bar.
 
 1. Click the menu-bar icon.
 2. Hit **Capture** (or press the global hotkey, default `⇧+⌘+O`).
-3. Drag a rectangle around the text you want.
+3. Drag a rectangle around the text you want. **Esc** or **right-click** cancels.
 4. The recognised text is already in your clipboard — paste it anywhere.
 
 The popover also offers:
