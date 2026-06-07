@@ -51,7 +51,8 @@ The popover also offers:
 - **Copy Last** — re-copies the most recent OCR result.
 - **Choose File…** — runs OCR on a PNG / JPEG / HEIC / TIFF / BMP / GIF / PDF
   (multi-page PDFs are processed page by page).
-- **Change hotkey** — record a new global combination.
+- **Change hotkey** — record a new global combination inline (the row flips to
+  *Press shortcut… / Cancel*; Esc or losing focus cancels).
 - **Quit**.
 
 ### Permissions
@@ -86,9 +87,8 @@ recognised reliably.
 
 ```
 ScreenshotOCRApp                // @main, MenuBarExtra(.window)
-└── AppCoordinator              // @MainActor orchestrator
+└── AppCoordinator              // @MainActor orchestrator (owns inline hotkey recorder state)
     ├── HotkeyManager           // Carbon RegisterEventHotKey
-    ├── HotkeyRecorderWindow/View
     ├── ScreenshotAreaSelector  // multi-monitor overlay
     │   └── SelectionOverlayView
     ├── OCRService              // VNRecognizeTextRequest → String

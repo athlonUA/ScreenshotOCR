@@ -10,7 +10,6 @@
 		0D93B9955AF3BC97748C021E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DEBE165C4ABD29468434A /* AppSettings.swift */; };
 		0DCBE85A51A3CF2FD4748FF9 /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2E79C03703723D1ABED0C /* AppSettingsTests.swift */; };
 		15A4BF4DAD98953923C0AFA2 /* ClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B020ADBCC41A2DD3B4496EC /* ClipboardService.swift */; };
-		163F29DB83E989A45275BEA1 /* HotkeyRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D93F7C1D3B7F995799B806 /* HotkeyRecorderView.swift */; };
 		2190A325D5923CDD1A981291 /* KeyCodeNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBD9C0AFB085FC6446E2D3 /* KeyCodeNames.swift */; };
 		3091FA6CA1A8EF6A3B594DF9 /* ClipboardServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FBD37BD5429C0D4717C58 /* ClipboardServiceTests.swift */; };
 		3818D9FD548A51D0D5472F44 /* AppIconRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C348EA8143416E8E9829F111 /* AppIconRenderer.swift */; };
@@ -19,7 +18,6 @@
 		4101B7032664D9F3DA8376EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07788B409EFC2EBE63F3375 /* Assets.xcassets */; };
 		4AFD0DDF805E689DCBA54A00 /* MenuBarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D95DB2DAFF6166AD39D3E2 /* MenuBarContent.swift */; };
 		59F85138BE75594D82A2C27D /* SelectionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D216AB5D53A14B6421AE4 /* SelectionOverlayView.swift */; };
-		8B93522FA36B771506EAAC66 /* HotkeyRecorderWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EC8E0942C20E7B67ECC92 /* HotkeyRecorderWindow.swift */; };
 		915DC2D335362E2970E57FBB /* ScreenshotAreaSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3173506CBF346D30841B5E58 /* ScreenshotAreaSelector.swift */; };
 		9ED0BD369ADB9BC7BBA6E748 /* FileOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDC6031098EC66DB59FD75 /* FileOCRService.swift */; };
 		9FF93416C211A4FDEC7F045C /* KeyCodeNamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76FDE4DBEC7B5581D7E177B /* KeyCodeNamesTests.swift */; };
@@ -45,11 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		045EC8E0942C20E7B67ECC92 /* HotkeyRecorderWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderWindow.swift; sourceTree = "<group>"; };
 		23F4CCA50753D145D90D6737 /* FileOCRServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOCRServiceTests.swift; sourceTree = "<group>"; };
 		2AEBEBFC98BDFF49D0BEE0E5 /* AppMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMarkView.swift; sourceTree = "<group>"; };
 		3173506CBF346D30841B5E58 /* ScreenshotAreaSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotAreaSelector.swift; sourceTree = "<group>"; };
-		49D93F7C1D3B7F995799B806 /* HotkeyRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderView.swift; sourceTree = "<group>"; };
 		5B020ADBCC41A2DD3B4496EC /* ClipboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardService.swift; sourceTree = "<group>"; };
 		5F22E212ABB5E418A316121A /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
 		63957CA4CDE6F19366940CA1 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
@@ -197,8 +193,6 @@
 			children = (
 				5F22E212ABB5E418A316121A /* Hotkey.swift */,
 				C69AE8F717701F669A41B811 /* HotkeyManager.swift */,
-				49D93F7C1D3B7F995799B806 /* HotkeyRecorderView.swift */,
-				045EC8E0942C20E7B67ECC92 /* HotkeyRecorderWindow.swift */,
 				BBDBD9C0AFB085FC6446E2D3 /* KeyCodeNames.swift */,
 			);
 			path = Hotkey;
@@ -306,8 +300,6 @@
 				9ED0BD369ADB9BC7BBA6E748 /* FileOCRService.swift in Sources */,
 				3C494AD055EB70D71A07573A /* Hotkey.swift in Sources */,
 				C7455058D75FC7A0AC357E42 /* HotkeyManager.swift in Sources */,
-				163F29DB83E989A45275BEA1 /* HotkeyRecorderView.swift in Sources */,
-				8B93522FA36B771506EAAC66 /* HotkeyRecorderWindow.swift in Sources */,
 				2190A325D5923CDD1A981291 /* KeyCodeNames.swift in Sources */,
 				4AFD0DDF805E689DCBA54A00 /* MenuBarContent.swift in Sources */,
 				DA35479F213B037177BB2CD7 /* OCRService.swift in Sources */,

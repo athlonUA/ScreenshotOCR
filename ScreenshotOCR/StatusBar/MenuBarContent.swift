@@ -119,13 +119,24 @@ struct MenuBarContent: View {
                 .frame(width: 14)
             Text("Capture:")
                 .font(.caption)
-            Text(storage.hotkey.description)
-                .font(.caption.monospaced())
-            Spacer()
-            Button("Change hotkey") {
-                coordinator.startHotkeyReplacement()
+            if coordinator.isCapturingHotkey {
+                Text("Press shortcut…")
+                    .font(.caption.monospaced())
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Button("Cancel") {
+                    coordinator.cancelHotkeyCapture()
+                }
+                .controlSize(.small)
+            } else {
+                Text(storage.hotkey.description)
+                    .font(.caption.monospaced())
+                Spacer()
+                Button("Change hotkey") {
+                    coordinator.startHotkeyCapture()
+                }
+                .controlSize(.small)
             }
-            .controlSize(.small)
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 5)

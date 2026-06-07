@@ -16,21 +16,23 @@ Primary flow: the user presses a global hotkey, drags a selection rectangle, the
 ## 3. Menu layout
 
 ### 3.1 Current hotkey
-- Informational, disabled row showing the active combination.
+- Inline row in the popover showing the active combination and a "Change hotkey" button.
 - Format: `Capture: ⇧+⌘+O`.
 - Default: `Cmd + Shift + O`.
 - Updates immediately after the hotkey is replaced.
 
-### 3.2 Replace hotkey…
-- Opens a compact modal / window with `HotkeyRecorder`.
-- The user presses the desired combination — it is recorded and validated (must include at least one modifier when used with an alphanumeric key, must not be a bare modifier key, must not conflict with reserved system shortcuts).
-- On Save:
+### 3.2 Replace hotkey (inline)
+- The "Change hotkey" button flips the right half of the row to `Press shortcut… / Cancel`.
+- No separate window: the popover already owns key window focus, which is what `NSEvent.addLocalMonitorForEvents` needs.
+- The user presses the desired combination — it is validated (must include at least one modifier when used with an alphanumeric key, must not be a bare modifier key, must not conflict with reserved system shortcuts).
+- On the first valid keystroke:
   - the previous hotkey is unregistered,
   - the new one is persisted in `UserDefaults`,
   - the new one is registered globally,
-  - the `Capture:` label updates.
+  - the `Capture:` label updates immediately.
   - If registration of the new combo fails, the previous binding is restored and the user is notified.
-- Esc cancels; a "Reset to default" button is provided.
+- Esc, the inline `Cancel` button, or losing app focus (`NSApplication.willResignActiveNotification`) all cancel without changing the stored hotkey.
+- Invalid combos (bare alphanumeric, lone modifier keycode) are silently rejected; the row stays armed.
 
 ### 3.3 Copy last extracted text
 - Copies the last recognised text into `NSPasteboard.general`.
@@ -94,9 +96,8 @@ Small, single-responsibility components. No singletons (except the documented on
 
 ```
 ScreenshotOCRApp            // @main, MenuBarExtra(.window) only
-└── AppCoordinator          // @MainActor orchestrator
+└── AppCoordinator          // @MainActor orchestrator (owns the inline hotkey recorder state)
     ├── HotkeyManager       // global hotkey via Carbon RegisterEventHotKey
-    ├── HotkeyRecorderWindow / HotkeyRecorderView
     ├── ScreenshotAreaSelector + SelectionOverlayView
     ├── OCRService          // VNRecognizeTextRequest → String
     ├── FileOCRService      // PNG/JPEG/HEIC/TIFF/BMP/GIF/PDF → CGImage(s) → OCRService

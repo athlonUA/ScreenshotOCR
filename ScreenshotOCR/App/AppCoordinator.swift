@@ -9,7 +9,7 @@ import UniformTypeIdentifiers
 /// 1. On init: register the global hotkey from `AppSettings.hotkey`.
 /// 2. Hotkey press → screenshot overlay → OCR → clipboard + `lastExtractedText`.
 /// 3. File picker → file OCR → clipboard + `lastExtractedText`.
-/// 4. Hotkey recorder window → save new hotkey → re-register globally.
+/// 4. Inline popover capture → save new hotkey → re-register globally.
 @MainActor
 final class AppCoordinator: ObservableObject {
     /// True while a screenshot, OCR run, or file OCR is in progress. Menu
@@ -18,6 +18,7 @@ final class AppCoordinator: ObservableObject {
     @Published private(set) var isWorking: Bool = false
     /// Last user-facing error message. Cleared when the next run starts.
     @Published private(set) var lastError: String?
+    @Published private(set) var isCapturingHotkey: Bool = false
 
     let storage: AppSettings
     let permissions: PermissionsService
@@ -27,7 +28,9 @@ final class AppCoordinator: ObservableObject {
     private let ocr = OCRService()
     private let fileOCR: FileOCRService
     private let clipboard = ClipboardService()
-    private let recorderWindow = HotkeyRecorderWindow()
+
+    private var captureMonitor: Any?
+    private var resignActiveObserver: NSObjectProtocol?
 
     init(storage: AppSettings, permissions: PermissionsService) {
         self.storage = storage
@@ -41,6 +44,15 @@ final class AppCoordinator: ObservableObject {
         }
         if !hotkeyManager.register(storage.hotkey) {
             lastError = "Could not register \(storage.hotkey.description). The combination may already be taken by another app — set a new one from the menu."
+        }
+    }
+
+    deinit {
+        if let captureMonitor {
+            NSEvent.removeMonitor(captureMonitor)
+        }
+        if let resignActiveObserver {
+            NotificationCenter.default.removeObserver(resignActiveObserver)
         }
     }
 
@@ -69,11 +81,71 @@ final class AppCoordinator: ObservableObject {
         }
     }
 
-    // MARK: - Replace hotkey
+    // MARK: - Replace hotkey (inline popover capture)
 
-    func startHotkeyReplacement() {
-        recorderWindow.present(initial: storage.hotkey) { [weak self] newHotkey in
-            self?.applyHotkey(newHotkey)
+    func startHotkeyCapture() {
+        cleanupCaptureMonitors()
+
+        isCapturingHotkey = true
+        lastError = nil
+
+        captureMonitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { [weak self] event in
+            guard let self else { return event }
+            return self.handleCaptureEvent(event)
+        }
+        // Popover loses key window on alt-tab / click-out — without this the
+        // recorder would stay armed and grab the next keystroke after return.
+        resignActiveObserver = NotificationCenter.default.addObserver(
+            forName: NSApplication.willResignActiveNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor [weak self] in
+                self?.cancelHotkeyCapture()
+            }
+        }
+    }
+
+    func cancelHotkeyCapture() {
+        // `willResignActive` can fire after a successful capture already
+        // tore the monitors down, so this method has to be a no-op then.
+        guard isCapturingHotkey else { return }
+        cleanupCaptureMonitors()
+        isCapturingHotkey = false
+    }
+
+    private func handleCaptureEvent(_ event: NSEvent) -> NSEvent? {
+        // Esc cancels regardless of modifiers — predictable escape hatch.
+        // Side effect: `⌘+Esc` cannot be recorded as a hotkey.
+        if event.keyCode == 53 {
+            cancelHotkeyCapture()
+            return nil
+        }
+        let keyCode = Int64(event.keyCode)
+        // NSEvent.modifierFlags is bit-compatible with CGEventFlags for the
+        // modifier bits; `Hotkey.init` masks the rest.
+        let flags = UInt64(event.modifierFlags.rawValue) & Hotkey.modifierMask
+        guard Hotkey.isValidForGlobal(keyCode: keyCode, flags: flags) else {
+            // Stay armed; consume the event so the rejected letter doesn't
+            // leak into anything focused behind the popover.
+            return nil
+        }
+
+        let newHotkey = Hotkey(keyCode: keyCode, flags: flags)
+        cleanupCaptureMonitors()
+        isCapturingHotkey = false
+        applyHotkey(newHotkey)
+        return nil
+    }
+
+    private func cleanupCaptureMonitors() {
+        if let monitor = captureMonitor {
+            NSEvent.removeMonitor(monitor)
+            captureMonitor = nil
+        }
+        if let observer = resignActiveObserver {
+            NotificationCenter.default.removeObserver(observer)
+            resignActiveObserver = nil
         }
     }
 
