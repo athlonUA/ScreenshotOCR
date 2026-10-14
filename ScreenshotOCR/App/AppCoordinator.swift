@@ -19,6 +19,10 @@ final class AppCoordinator: ObservableObject {
     /// Last user-facing error message. Cleared when the next run starts.
     @Published private(set) var lastError: String?
     @Published private(set) var isCapturingHotkey: Bool = false
+    /// True while Vision's models are being compiled/cached at launch. The
+    /// first run after a macOS update can take ~35 s; the menu says so instead
+    /// of looking hung.
+    @Published private(set) var isWarmingUp: Bool = false
 
     let storage: AppSettings
     let permissions: PermissionsService
@@ -45,6 +49,7 @@ final class AppCoordinator: ObservableObject {
         if !hotkeyManager.register(storage.hotkey) {
             lastError = "Could not register \(storage.hotkey.description). The combination may already be taken by another app — set a new one from the menu."
         }
+        warmUpRecognition()
     }
 
     deinit {
@@ -53,6 +58,17 @@ final class AppCoordinator: ObservableObject {
         }
         if let resignActiveObserver {
             NotificationCenter.default.removeObserver(resignActiveObserver)
+        }
+    }
+
+    // MARK: - Vision warm-up
+
+    private func warmUpRecognition() {
+        isWarmingUp = true
+        let ocr = self.ocr
+        Task { [weak self] in
+            await ocr.warmUp()
+            self?.isWarmingUp = false
         }
     }
 

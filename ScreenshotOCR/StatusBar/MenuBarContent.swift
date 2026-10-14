@@ -14,6 +14,9 @@ struct MenuBarContent: View {
         VStack(alignment: .leading, spacing: 10) {
             header
             permissionsBanner
+            if coordinator.isWarmingUp {
+                warmUpNotice
+            }
             primaryAction
             if let error = coordinator.lastError {
                 errorBanner(error)
@@ -174,6 +177,18 @@ struct MenuBarContent: View {
                     },
                 ]
             )
+        }
+    }
+
+    // MARK: - Warm-up notice
+
+    private var warmUpNotice: some View {
+        HStack(alignment: .top, spacing: 6) {
+            ProgressView().controlSize(.small)
+            Text("Preparing text recognition. The first run after a macOS update can take up to a minute — keep the app running.")
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 

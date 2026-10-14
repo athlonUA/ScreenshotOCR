@@ -83,6 +83,30 @@ final class OCRServiceTests: XCTestCase {
         XCTAssertEqual(OCRService.languages, ["en-US", "es-ES", "ru-RU", "uk-UA"])
     }
 
+    // MARK: - Warm-up
+
+    /// The warm-up sample must be readable in both scripts, otherwise it would
+    /// not exercise the models a real Latin/Cyrillic capture needs.
+    func test_warmUpImage_isRecognizedAsLatinAndCyrillic() async throws {
+        let image = try XCTUnwrap(OCRService.makeWarmUpImage())
+        let text = try await OCRService().recognize(image)
+        XCTAssertTrue(text.localizedCaseInsensitiveContains("hello"),
+                      "Expected Latin text in warm-up image, got: \(text)")
+        XCTAssertTrue(text.localizedCaseInsensitiveContains(Self.russianHello),
+                      "Expected Russian text in warm-up image, got: \(text)")
+        XCTAssertTrue(text.localizedCaseInsensitiveContains(Self.ukrainianHello),
+                      "Expected Ukrainian text in warm-up image, got: \(text)")
+    }
+
+    func test_warmUp_completesAndLeavesServiceUsable() async throws {
+        let service = OCRService()
+        await service.warmUp()
+        let image = try Self.render("Hello World", size: CGSize(width: 480, height: 96))
+        let text = try await service.recognize(image)
+        XCTAssertTrue(text.localizedCaseInsensitiveContains("hello"),
+                      "Expected 'hello' after warm-up, got: \(text)")
+    }
+
     // MARK: - Helpers
 
     private static func render(_ text: String, size: CGSize) throws -> CGImage {
